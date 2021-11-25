@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regex</title>
+</head>
+<body>
+    <input id="frånInput" type="text">
+    <button onclick="testaLösenord()">knapp</button>
+    <script>
+        let lösenRegex = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,64})/
+
+        // console.log('regexSvar', regexSvar)
+
+        const testaLösenord = () => {
+            let senasteLösenordet = document.getElementById("frånInput").value
+            let regexSvar = lösenRegex.test(senasteLösenordet)
+            console.log('senasteLösenordet', senasteLösenordet)
+
+            if (regexSvar) {
+                console.log('bra lösenord')
+                let element = document.createElement("h2");
+                let text = senasteLösenordet + "är ett bra lösenord";
+                element.append(text);
+                document.body.appendChild(element);
+            }
+            else {
+                console.log('dåligt lösenord')
+                let element = document.createElement("h2");
+                let text = senasteLösenordet + "är ett dåligt lösenord";
+                element.append(text);
+                document.body.appendChild(element);
+            }        
+    }
+
+
+    </script>
+</body>
+</html>

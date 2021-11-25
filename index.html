@@ -54,27 +54,47 @@
           </select>
         </p>
       
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" disabled>
         <input type="reset" value="Cancel">
       </form>
+
+      <button onclick="nils()">logga nils</button>
+
 
       <script>
           const form = document.querySelector("form")
 
-          form.addEventListener("submit", function (event) {
+        //   function nils () {
+        //     console.log('jag heter nils')
+        //   }
+        const checkEmail = event => {
             event.preventDefault()
-
             let emailAdress = document.getElementById("emailAddress")
             console.log('emailAdress.value.length', emailAdress.value.length)
-
             if (emailAdress.value.length > 8) {
                 console.log("din mailadress är för lång")
             }
-            else {
-                //ingenting
-            }
+        }
+
+        
+        form.addEventListener("submit", checkEmail)
+
+
+
+        //   form.addEventListener("submit", function (event) {
+        //     event.preventDefault()
+
+        //     let emailAdress = document.getElementById("emailAddress")
+        //     console.log('emailAdress.value.length', emailAdress.value.length)
+
+        //     if (emailAdress.value.length > 8) {
+        //         console.log("din mailadress är för lång")
+        //     }
+        //     else {
+        //         //ingenting
+        //     }
             
-          })
+        //   })
       </script>
 </body>
 </html>

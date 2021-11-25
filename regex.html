@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regex</title>
+</head>
+<body>
+    <input id="frånInput" type="text">
+    <button onclick="testaLösenord()">testa lösenord</button>
+
+    <script>
+        let = regexSvårtLösenord = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,64})/
+        //https://regexr.com/
+        console.log(regexSvårtLösenord.test('12345678aaAA!!')) 
+
+        
+
+        const testaLösenord = () => {
+            let element = document.createElement("h2");
+            let senasteLösenordet = document.getElementById("frånInput").value
+
+            if (regexSvårtLösenord.test(senasteLösenordet)) {
+                let text = senasteLösenordet + " bra lösenord!";
+                element.append(text);
+                document.body.appendChild(element);
+            }
+            else {
+                let text = senasteLösenordet + " för dåligt lösenord";
+                element.append(text);
+                document.body.appendChild(element);
+            }
+        }
+    </script>
+</body>
+</html>
